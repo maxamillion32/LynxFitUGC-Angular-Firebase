@@ -1,0 +1,42 @@
+<h2 class="font-thin m-b">Existing Workouts</h2>
+
+<div class="row row-sm">
+  <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2" ng-repeat="(key, item) in vm.workouts">
+    <div class="item">
+      <div class="pos-rlt">
+        <div class="item-overlay opacity r r-2x bg-black">
+          <div class="text-info padder m-t-sm text-sm">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star-o text-muted"></i>
+            <i class="fa fa-star-o text-muted"></i>
+            <i class="fa fa-star-o text-muted"></i>
+          </div>
+          <div class="center text-center m-t-n">
+            <a ui-sref="dashboard.workout.update({id:key})">
+              <span class="i-s i-s-2x m-r-sm">
+                <i class="i i-circle i-s-base text-info"></i>
+                <i class="fa fa-edit fa-1x text-white"></i>
+              </span>
+            </a>
+          </div>
+          <div class="bottom padder m-b-sm">
+            <a href="#" class="pull-right" ng-click="vm.removeWorkout(key)" confirm="Are you sure remove this workout?">
+              <i class="fa fa-remove"></i>
+            </a>
+          </div>
+        </div>
+        <a href="#">
+          <img ng-if="item.coverImage240" ng-src="{{item.coverImage240|lfSrc:'coverImage'}}" alt="" class="r r-2x img-full">
+          <img ng-if="!item.coverImage240" ng-src="assets/img/p0.jpg" alt="" class="r r-2x img-full">
+        </a>
+      </div>
+      <div class="padder-v">
+        <a href="#" class="text-ellipsis">{{item.name}}</a>
+        <a href="#" class="text-ellipsis text-xs text-muted">{{item.difficultyLevel}}</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="clearfix visible-xs"></div>
+</div>

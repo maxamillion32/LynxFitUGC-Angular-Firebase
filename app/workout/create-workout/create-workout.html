@@ -1,0 +1,19 @@
+<div id="create-workouts" class="panel panel-default">
+  <div class="panel-heading font-bold">
+    Create Workout
+  </div>
+
+  <div class="panel-body">
+    <form class="form-horizontal" name="vm.workoutForm" novalidate>
+
+      <ng-include src="'app/workout/partial/_workout-form.html'"></ng-include>
+
+      <div class="form-group">
+        <div class="col-sm-4 col-sm-offset-2">
+          <button type="submit" class="btn btn-primary" ng-click="vm.save()">Create</button>
+          <a ui-sref="dashboard.workout.list" class="btn btn-default">Cancel</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

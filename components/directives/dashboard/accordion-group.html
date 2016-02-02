@@ -1,0 +1,7 @@
+<li ng-class="{'active': isOpen}">
+  <a href="#" ng-click="toggleOpen()" accordion-transclude="heading">
+    <span ng-class="{'text-muted': isDisabled}" class="font-bold">{{heading}}</span>
+  </a>
+  <ul class="nav dk" collapse="!isOpen" ng-transclude>
+  </ul>
+</li>

@@ -1,0 +1,18 @@
+<section lf-dashboard-responsive class="vbox">
+
+  <header lf-dashboard-header class="bg-dark header header-md navbar navbar-fixed-top-xs box-shadow"></header>
+
+  <section>
+    <section class="hbox stretch">
+      <!-- .aside -->
+      <aside class="bg-black aside-md hidden-print hidden-xs" id="nav">
+        <section class="vbox" lf-dashboard-left-menu></section>
+      </aside>
+      <!-- /.aside -->
+      <section>
+        <section class="vbox" ui-view></section>
+        <a href="#" class="hide nav-off-screen-block" lf-data-toggle data-class-toggle="nav-off-screen" data-target="#nav"></a>
+      </section>
+    </section>
+  </section>
+</section>

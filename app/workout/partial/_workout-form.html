@@ -1,0 +1,141 @@
+<div class="form-group">
+  <label class="col-sm-2 control-label">Image</label>
+
+  <div class="col-sm-10" flow-init="{singleFile: true}" flow-name="vm.image"
+       flow-file-added="vm.fileAdded($file, $message)">
+    <div>
+      <input type="hidden" name="coverImage240" ng-model="vm.workout.coverImage240"/>
+      <span class="btn btn-default" flow-btn="" flow-attrs="{accept:'image/*'}">
+        Upload Image
+      </span>
+      <div class="help-block" ng-messages="vm.workoutForm.coverImage240.$error">
+        <div ng-message="maxSize">Max file size 1MB</div>
+      </div>
+    </div>
+    <img ng-if="vm.image.files.length" flow-img="vm.image.files[0]" height="200"/>
+    <img ng-if="vm.workout.coverImage240 && !vm.image.files.length" height="200"
+         ng-src="{{vm.workout.coverImage240|lfSrc:'coverImage'}}"/>
+  </div>
+</div>
+<div class="form-group">
+  <label class="col-sm-2 control-label">Name</label>
+
+  <div class="col-sm-10">
+    <input class="form-control" name="name" ng-model="vm.workout.name" required ng-maxlength="100">
+    <div class="help-block" ng-messages="vm.workoutForm.name.$error" ng-show="vm.workoutForm.$submitted">
+      <div ng-message="required">This field is required</div>
+      <div ng-message="maxlength">This field is too long</div>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-2 control-label">Description</label>
+
+  <div class="col-sm-10">
+    <input class="form-control" name="description" ng-model="vm.workout.description" required ng-maxlength="250">
+    <div  class="help-block" ng-messages="vm.workoutForm.description.$error" ng-show="vm.workoutForm.$submitted">
+      <div ng-message="required">This field is required</div>
+      <div ng-message="maxlength">This field is too long</div>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-2 control-label">Category</label>
+
+  <div class="col-sm-10">
+    <select class="form-control" name="category" ng-model="vm.workout.category"
+            ng-options="item.label as item.value for item in vm.categories">
+    </select>
+    <div class="help-block" ng-messages="vm.workoutForm.category.$error" ng-show="vm.workoutForm.$submitted">
+      <div ng-message="required">This field is required</div>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-2 control-label">Difficulty Level</label>
+
+  <div class="col-sm-10">
+    <select class="form-control" name="difficultyLevel" ng-model="vm.workout.difficultyLevel" required
+            ng-options="item.value as item.label for item in vm.options.difficultyLevels">
+    </select>
+    <div class="help-block" ng-messages="vm.workoutForm.difficultyLevel.$error" ng-show="vm.workoutForm.$submitted">
+      <div ng-message="required">This field is required</div>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-2 control-label">Program Type</label>
+
+  <div class="col-sm-10">
+    <select class="form-control" name="programType" ng-model="vm.workout.programType">
+      <option value="activity">Activity</option>
+    </select>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-2 control-label">Total Days</label>
+
+  <div class="col-sm-10">
+    <input type="number" min="1" class="form-control" name="totalDays" ng-model="vm.workout.totalDays" required>
+    <div class="help-block" ng-messages="vm.workoutForm.totalDays.$error" ng-show="vm.workoutForm.$submitted">
+      <div ng-message="required">This field is required</div>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-2 control-label">Spekable Description</label>
+
+  <div class="col-sm-10">
+            <textarea class="form-control" rows="5" name="spekableDescription"
+                      ng-model="vm.workout.spekableDescription"></textarea>
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-sm-2 control-label">Rounds</label>
+
+  <div class="col-sm-10">
+    <button type="button" class="btn btn-primary" ng-click="vm.openRoundModal()">Add round</button>
+    <div ui-tree="vm.treeOptions" id="tree-root">
+      <ol ui-tree-nodes ng-model="vm.workout.rounds">
+        <li ui-tree-node ng-repeat="round in vm.workout.rounds">
+          <div ui-tree-handle class="tree-node tree-node-content">
+            <a class="btn btn-success btn-xs" data-nodrag ng-if="round.steps && round.steps.length > 0"
+               ng-click="vm.toggle(this)">
+              <span class="fa" ng-class="{ 'fa-chevron-right': collapsed,'fa-chevron-down': !collapsed}"></span></a>
+            {{round.restType}}
+            <a class="pull-right btn btn-danger btn-xs" data-nodrag href="#" title="Remove"
+                ng-click="vm.removeTree(this)" confirm="Are you sure remove this round?">
+              <span class="fa fa-times"></span></a>
+            <a class="pull-right btn btn-primary btn-xs" data-nodrag href="#" title="Edit"
+                ng-click="vm.openRoundModal(round)">
+              <span class="fa fa-pencil-square-o"></span></a>
+            <a class="pull-right btn btn-primary btn-xs" data-nodrag href="#" title="Add Step"
+               ng-click="vm.openStepModal(round)">
+              <span class="fa fa-plus"></span></a>
+          </div>
+
+          <ol ui-tree-nodes="" ng-model="round.steps" ng-class="{hidden: collapsed}">
+            <li ui-tree-node ng-repeat="step in round.steps">
+              <div ui-tree-handle class="tree-node tree-node-content">
+                {{step.name}}
+                <a class="pull-right btn btn-danger btn-xs" data-nodrag href="#" title="Remove"
+                   ng-click="vm.removeTree(this)" confirm="Are you sure remove this step?">
+                  <span class="fa fa-times"></span></a>
+                <a class="pull-right btn btn-primary btn-xs" data-nodrag href="#" title="Edit"
+                    ng-click="vm.openStepModal(round, step)">
+                  <span class="fa fa-pencil-square-o"></span></a>
+              </div>
+            </li>
+          </ol>
+        </li>
+      </ol>
+    </div>
+  </div>
+</div>

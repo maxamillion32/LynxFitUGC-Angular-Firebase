@@ -1,0 +1,27 @@
+<form name="vm.subscribeForm" novalidate>
+  <div class="modal-header">
+    <h4 class="modal-title">Subscribe</h4>
+  </div>
+  <div class="modal-body">
+
+    <div class="form-group">
+      <label for="name" class="control-label">Name</label>
+      <input type="text" class="form-control" ng-model="vm.workout.name" name="name" id="name" required>
+      <div class="help-block" ng-messages="vm.subscribeForm.name.$error" ng-show="vm.subscribeForm.$submitted">
+        <div ng-message="required">This field is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description" class="control-label">Description</label>
+      <input type="text" class="form-control" ng-model="vm.workout.description" name="description" id="description" required>
+      <div class="help-block" ng-messages="vm.subscribeForm.description.$error" ng-show="vm.subscribeForm.$submitted">
+        <div ng-message="required">This field is required</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary" ng-click="vm.save()">Ok</button>
+    <button type="button" class="btn btn-default" ng-click="vm.cancel()">Cancel</button>
+  </div>
+</form>

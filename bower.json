@@ -1,0 +1,36 @@
+{
+  "name": "lynxfit",
+  "version": "0.0.0",
+  "main": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "1.4.4",
+    "jquery": "~2.1",
+    "underscore": "~1.5",
+    "bootstrap": "~3.1",
+    "firebase": "~2.2",
+    "angularfire": "~1.0",
+    "moment": "~2.10",
+    "lodash": "~3.10",
+    "less.js": "~1.6",
+    "modernizr": "*",
+    "angular-ui-router": "~0.2",
+    "angular-animate": "~1.4",
+    "angular-resource": "~1.4",
+    "angular-cookies": "~1.4",
+    "angular-mocks": "~1.4",
+    "angular-ui-utils": "~0.1",
+    "angular-bootstrap": "~0.13",
+    "angular-messages": "~1.4",
+    "angular-ui-tree": "~2.9.0",
+    "angular-slimscroll": "~1.1.5",
+    "ng-flow":"~2.6.1",
+    "font-awesome": "~4.4",
+    "angular-scroll":"~0.7.2",
+    "ngScrollSpy": "~1.0.8"
+  }
+}

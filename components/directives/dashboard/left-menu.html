@@ -1,0 +1,97 @@
+<section class="w-f-md scrollable">
+  <div slimscroll="vm.slimscrollOptions">
+    <div class="clearfix wrapper dk nav-user hidden-xs">
+      <div class="thumb avatar pull-left m-r">
+        <img ng-src="{{vm.user.image}}" class="dker">
+        <i class="on md b-black"></i>
+      </div>
+      <div class="hidden-nav-xs clear">
+        <div class="block m-t-xs">
+          <strong class="font-bold text-lt">{{vm.user.name}}</strong>
+          <b class="caret"></b>
+        </div>
+        <span class="text-muted text-xs block">Level 5 Lynx</span>
+      </div>
+    </div>
+    <!-- nav -->
+    <nav class="nav-primary hidden-xs">
+      <div class="text-muted text-sm hidden-nav-xs padder m-t-sm m-b-sm">Start</div>
+      <accordion template-url="components/directives/dashboard/accordion.html">
+        <accordion-group template-url="components/directives/dashboard/accordion-single.html">
+          <a ui-sref="dashboard.overview" class="auto">
+            <i class="i i-statistics icon"></i>
+            <span class="font-bold">Overview</span>
+          </a>
+        </accordion-group>
+        <accordion-group template-url="components/directives/dashboard/accordion-group.html">
+          <accordion-heading class="auto">
+            <span class="pull-right text-muted">
+              <i class="i i-circle-sm-o text"></i>
+              <i class="i i-circle-sm text-active"></i>
+            </span>
+            <i class="i i-lab icon"></i>
+            Insights
+          </accordion-heading>
+          <li class="auto">
+            <a href="#">
+              <b class="badge bg-danger lt pull-right">2</b>
+              <i class="i i-dot"></i>
+              <span>Progress</span>
+            </a>
+          </li>
+          <li class="auto">
+            <a href="#">
+              <b class="badge bg-danger lt pull-right">2</b>
+              <i class="i i-dot"></i>
+              <span>Programs</span>
+            </a>
+          </li>
+          <li class="auto">
+            <a href="#">
+              <b class="badge bg-danger lt pull-right">2</b>
+              <i class="i i-dot"></i>
+              <span>P.I.E</span>
+            </a>
+          </li>
+        </accordion-group>
+        <accordion-group template-url="components/directives/dashboard/accordion-group.html">
+          <accordion-heading>
+            <span class="pull-right text-muted">
+              <i class="i i-circle-sm-o text"></i>
+              <i class="i i-circle-sm text-active"></i>
+            </span>
+            <i class="i i-grid2 icon"></i>
+            Workouts
+          </accordion-heading>
+          <li class="auto">
+            <a ui-sref="dashboard.workout.templates">
+              <b class="badge bg-danger lt pull-right">2</b>
+              <i class="i i-dot"></i>
+              <span>Workouts Templates</span>
+            </a>
+          </li>
+          <li class="auto">
+            <a ui-sref="dashboard.workout.list">
+              <b class="badge bg-danger lt pull-right">2</b>
+              <i class="i i-dot"></i>
+              <span>Existing Workouts</span>
+            </a>
+          </li>
+        </accordion-group>
+      </accordion>
+    </nav>
+    <!-- / nav -->
+  </div>
+</section>
+
+<footer class="footer hidden-xs no-padder text-center-nav-xs">
+  <a href="#" ng-click="vm.signout()"
+     class="btn btn-icon icon-muted btn-inactive pull-right m-l-xs m-r-xs hidden-nav-xs">
+    <i class="i i-logout"></i>
+  </a>
+  <a href="#" data-toggle="class:nav-xs"
+     class="btn btn-icon icon-muted btn-inactive m-l-xs m-r-xs">
+    <i class="i i-circleleft text"></i>
+    <i class="i i-circleright text-active"></i>
+  </a>
+</footer>

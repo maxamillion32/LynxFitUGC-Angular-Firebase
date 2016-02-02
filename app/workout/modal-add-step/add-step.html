@@ -1,0 +1,47 @@
+<form name="vm.stepForm" novalidate>
+  <div class="modal-header">
+    <h4 class="modal-title">Step Modal</h4>
+  </div>
+  <div class="modal-body">
+
+    <div class="form-group">
+      <label for="name" class="control-label">Name</label>
+      <input type="text" class="form-control" ng-model="vm.step.name" name="name" id="name" required>
+
+      <div class="help-block" ng-messages="vm.stepForm.name.$error" ng-show="vm.stepForm.$submitted">
+        <div ng-message="required">This field is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description" class="control-label">Description</label>
+      <input type="text" class="form-control" ng-model="vm.step.description" name="description" id="description"
+             required>
+
+      <div class="help-block" ng-messages="vm.stepForm.description.$error" ng-show="vm.stepForm.$submitted">
+        <div ng-message="required">This field is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="type" class="control-label">Type</label>
+      <select class="form-control" name="type" ng-model="vm.step.type" id="type">
+        <option value="activity">Activity</option>
+      </select>
+      <div class="help-block" ng-messages="vm.stepForm.description.$error" ng-show="vm.stepForm.$submitted">
+        <div ng-message="required">This field is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="time" class="control-label">Time</label>
+      <input type="number" class="form-control" ng-model="vm.step.time" name="time" id="time" required>
+
+      <div class="help-block" ng-messages="vm.stepForm.description.$error" ng-show="vm.stepForm.$submitted">
+        <div ng-message="required">This field is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary" ng-click="vm.save()">Ok</button>
+    <button type="button" class="btn btn-default" ng-click="vm.cancel()">Cancel</button>
+  </div>
+</form>
