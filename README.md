@@ -1,4 +1,5 @@
 # LynxFit-Plus
+A personal learning exercise with Firebase & Angular. Purpose is to re-create LynxFit app for web and adding user generated content (custom workouts) features
 
 ## To install:
 
